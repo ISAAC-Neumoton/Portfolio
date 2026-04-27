@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "title": "Hospital Patients Analysis",
+    "description": "Complete SQL project analyzing hospital patient data.",
+    "image": "",
+    "tags": ["SQL"],
+    "projectLink": "https://github.com/ISAAC-Neumoton/hospital_patients_analysis"
+  },
+  {
+    "id": 2,
+    "title": "Job Postings Analysis",
+    "description": "Exploring job postings across different platforms.",
+    "image": "",
+    "tags": ["Python"],
+    "projectLink": "https://github.com/ISAAC-Neumoton/Job-Postings-Analysis"
+  },
+  {
+    "id": 3,
+    "title": "Excel Dashboards Projects",
+    "description": "All my Excel project dashboards are stored here.",
+    "image": "",
+    "tags": ["Excel"],
+    "projectLink": " https://1drv.ms/x/c/57cfc0e4dc8dc00d/IQAE-nZca17vRYi524oI1v_4AVozaWb5uZXmKbZEY8ZF19Q?e=04hZNh"
+  }
+]

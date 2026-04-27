@@ -1,0 +1,238 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* rest of your CSS stays exactly the same... */
+
+/* ── CSS Variables ─────────────────────────────────────── */
+:root {
+  --color-primary: #FF6B00;
+  --color-primary-dark: #E05A00;
+  --color-dark: #0D0D0D;
+  --color-dark-card: #1A1A1A;
+  --color-dark-border: #2a2a2a;
+  --color-text-muted: #888888;
+  --navbar-height: 70px;
+}
+
+/* ── Base Reset ────────────────────────────────────────── */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-dark);
+  color: #ffffff;
+  font-family: 'DM Sans', sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Scrollbar ─────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 10px;
+}
+
+/* ── Utility Classes ───────────────────────────────────── */
+.section-padding {
+  padding: 80px 0;
+}
+
+.container-custom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ── Orange Gradient Text ──────────────────────────────── */
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-primary), #FF9A3C);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Section Title ─────────────────────────────────────── */
+.section-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  letter-spacing: 2px;
+  color: #ffffff;
+}
+
+.section-title span {
+  color: var(--color-primary);
+}
+
+/* ── Active Nav Link ───────────────────────────────────── */
+.nav-link.active {
+  color: var(--color-primary) !important;
+}
+
+/* ── Orange Button ─────────────────────────────────────── */
+.btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+  padding: 8px 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-primary:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 107, 0, 0.35);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* ── Outlined Button ───────────────────────────────────── */
+.btn-outline {
+  background: transparent;
+  color: #fff;
+  padding: 12px 28px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  border: 1.5px solid rgba(255,255,255,0.35);
+  cursor: pointer;
+  transition: border-color 0.2s ease, transform 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-outline:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  transform: translateY(-2px);
+}
+
+/* ── Card ──────────────────────────────────────────────── */
+.card {
+  background: var(--color-dark-card);
+  border: 1px solid var(--color-dark-border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 0 1px var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+/* ── Background decorative shapes ─────────────────────── */
+.bg-shape {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,107,0,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ── Hamburger animation ───────────────────────────────── */
+.hamburger-line {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease, background 0.3s ease;
+  transform-origin: center;
+}
+
+.hamburger-open .hamburger-line:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.hamburger-open .hamburger-line:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.hamburger-open .hamburger-line:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ── Stats counter ─────────────────────────────────────── */
+.stat-card {
+  border-left: 2px solid var(--color-primary);
+  padding-left: 16px;
+}
+
+/* ── Input field ───────────────────────────────────────── */
+.input-field {
+  background: var(--color-dark-card);
+  border: 1px solid var(--color-dark-border);
+  color: #fff;
+  padding: 14px 16px;
+  border-radius: 8px;
+  width: 100%;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  outline: none;
+}
+
+.input-field::placeholder {
+  color: var(--color-text-muted);
+}
+
+.input-field:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(255,107,0,0.15);
+}
+
+/* ── Hero profile image circle ─────────────────────────── */
+.hero-img-circle {
+  position: relative;
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 60% 40%, #2a2a2a 0%, #111 100%);
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 2px solid var(--color-dark-border);
+  box-shadow: 0 0 60px rgba(255, 107, 0, 0.1), inset 0 0 40px rgba(0,0,0,0.5);
+}
+
+@media (max-width: 768px) {
+  .hero-img-circle {
+    width: 220px;
+    height: 220px;
+  }
+}
+
+/* ── Geo background triangles ──────────────────────────── */
+.geo-triangle {
+  position: absolute;
+  border-style: solid;
+  pointer-events: none;
+  opacity: 0.07;
+}
