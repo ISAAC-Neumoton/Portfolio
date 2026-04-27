@@ -1,10 +1,3 @@
-/**
- * socialLinks.js
- * ──────────────────────────────────────────────────────────
- * Edit this file to update all social links across the site.
- * Each platform icon is sourced from react-icons (ri = Remix Icons).
- */
-
 export const socialLinks = [
   {
     id: 'whatsapp',
@@ -15,11 +8,10 @@ export const socialLinks = [
   },
   {
     id: 'email',
-    label: 'El',
+    label: 'Email',
     url: 'mailto:isaacujay@gmail.com',
     icon: 'MdEmail',
     color: '#EA4335',
-
   },
   {
     id: 'linkedin',
