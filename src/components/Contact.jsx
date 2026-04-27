@@ -27,19 +27,18 @@ function Reveal({ children, delay = 0 }) {
 
 /* ── Form submission ────────────────────────────────────── */
 const onSubmit = async (event) => {
-  event.preventDefault();
-  const formData = new FormData(event.target);
-  formData.append("access_key", "e0c2fc91-d3c9-4e7c-b998-6125d6bcef49");
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    formData.append("access_key", "0ac3873b-db33-4345-8f87-db9d6168e35a");
 
-  const response = await fetch("https://api.web3forms.com/submit", {
-    method: "POST",
-    body: formData
-  });
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData
+    });
 
-  const data = await response.json();
-  setResult(data.success ? "Success!" : "Error");
-};
-
+    const data = await response.json();
+    setResult(data.success ? "Success!" : "Error");
+  };
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
