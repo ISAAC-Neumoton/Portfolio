@@ -3,7 +3,7 @@ import { motion, useInView } from 'framer-motion';
 import { FiSend } from 'react-icons/fi';
 import { MdEmail, MdLocationOn } from 'react-icons/md';
 import { FaWhatsapp } from 'react-icons/fa';
-import emailjs from '@emailjs/browser';
+
 // import SocialIcons from '../SocialIcons/SocialIcons';
 import SocialIcons from "./SocialICons";
 import { socialLinks } from "../data/socialLinks";
@@ -26,20 +26,20 @@ function Reveal({ children, delay = 0 }) {
 }
 
 /* ── Form submission ────────────────────────────────────── */
-const onSubmit = async (event) => {
-    event.preventDefault();
-    const formData = new FormData(event.target);
-    formData.append("access_key", "0ac3873b-db33-4345-8f87-db9d6168e35a");
-
-    const response = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      body: formData
-    });
-
-    const data = await response.json();
-    setResult(data.success ? "Success!" : "Error");
-  };
-
+async function submitForm(data) {
+  const res = await fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      access_key: '0ac3873b-db33-4345-8f87-db9d6168e35a',
+      name:    data.name,
+      email:   data.email,
+      message: data.message,
+    }),
+  });
+  const json = await res.json();
+  if (!json.success) throw new Error(json.message);
+}
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
   const [status, setStatus] = useState('idle'); // idle | loading | success | error
@@ -55,10 +55,11 @@ export default function Contact() {
     if (!form.name || !form.email || !form.message) return;
     setStatus('loading');
     try {
-      const ok = await submitForm(form);
-      setStatus(ok ? 'success' : 'error');
-      if (ok) setForm({ name: '', email: '', message: '' });
-    } catch {
+      await submitForm(form);
+      setStatus('success');
+      setForm({ name: '', email: '', message: '' });
+    } catch (err) {
+      console.log(err);
       setStatus('error');
     }
   };
