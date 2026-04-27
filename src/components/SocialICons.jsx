@@ -30,7 +30,7 @@ export default function SocialIcons({ size = 18, showLabel = false }) {
             key={id}
             href={url}
             target={id === 'email' ? '_self' : '_blank'}
-            rel= {id === 'email' ? undefined : 'noopener noreferrer'}
+            rel= "noopener noreferrer"
             aria-label={label}
             title={label}
             className="
