@@ -1,26 +1,42 @@
 [
   {
     "id": 1,
-    "title": "Hospital Patients Analysis",
-    "description": "Complete SQL project analyzing hospital patient data.",
+    "title": "Brazilian E-Commerce Sales Analysis",
+    "description": "An end-to-end data analytics and predictive modeling project utilizing a 9-CSV relational schema on SQL Server 2022 to isolate actionable predictors of high-performing products. Engineered advanced data cleaning pipelines in Python (pandas, NumPy) to calculate metrics like delivery deltas and shipping-to-price ratios, built pyodbc/SQLAlchemy bridges, and applied NLP (NLTK, Transformers) for review sentiment scoring. Translated findings into an interactive Power BI desktop dashboard backed by rigorous scikit-learn statistical modeling and feature importance analysis.",
     "image": "",
-    "tags": ["SQL"],
-    "projectLink": "https://github.com/ISAAC-Neumoton/hospital_patients_analysis"
+    "tags": ["SQL Server", "Python", "Power BI", "NLP", "Scikit-Learn"],
+    "projectLink": "https://github.com/ISAAC-Neumoton/CodeAlpha_DataAnalysis"
   },
   {
     "id": 2,
-    "title": "Job Postings Analysis",
-    "description": "Exploring job postings across different platforms.",
+    "title": "Hospital Patients Operational & Financial Analysis",
+    "description": "A comprehensive SQL optimization project focused on production-grade database schema design, data profiling, and deep clinical auditing. Authored complex analytical queries to detect missing data and orphan records across admissions and procedures, segment utilization metrics by age and demographics, and flag clinical length-of-stay (LOS) outliers. Implemented granular financial analytics to evaluate health insurance payer market shares, track total insurance claims volume, and identify 'super-utilizer' patient trends to optimize hospital resource efficiency.",
     "image": "",
-    "tags": ["Python"],
-    "projectLink": "https://github.com/ISAAC-Neumoton/Job-Postings-Analysis"
+    "tags": ["SQL", "Database Design", "Data Quality", "Analytics"],
+    "projectLink": "https://github.com/ISAAC-Neumoton/hospital_patients_analysis"
   },
   {
     "id": 3,
-    "title": "Excel Dashboards Projects",
-    "description": "All my Excel project dashboards are stored here.",
+    "title": "Automated Machine Learning Solutions",
+    "description": "A dedicated engineering repository focused on building automated, production-ready machine learning pipelines to solve real-world problems. Maintained over an active 100-day development streak using Python and scikit-learn, building modular components for end-to-end feature selection, missing value imputation, robust train/test evaluation splits, classification, regression modeling, and interpretation metrics—all managed via rigorous daily Git and GitHub version control practices.",
     "image": "",
-    "tags": ["Excel"],
-    "projectLink": " https://1drv.ms/x/c/57cfc0e4dc8dc00d/IQAE-nZca17vRYi524oI1v_4AVozaWb5uZXmKbZEY8ZF19Q?e=04hZNh"
+    "tags": ["Python", "Machine Learning", "Automation", "Git"],
+    "projectLink": "https://github.com/ISAAC-Neumoton/Machine-Learining-Models"
+  },
+  {
+    "id": 4,
+    "title": "Excel RFM Customer Segmentation & Churn Analysis",
+    "description": "An advanced customer intelligence project utilizing relational SQL window functions to calculate historical Recency, Frequency, and Monetary (RFM) values from transactional data. Successfully classified active user bases into precise behavioral cohorts (Champions, At-Risk, Hibernating) to proactively predict churning behaviors. Designed and deployed an interactive executive-facing Excel dashboard leveraging advanced formulas, custom dynamic pivot tables, and interactive slicers for clear customer retention tracking.",
+    "image": "",
+    "tags": ["Excel", "SQL", "RFM Modeling", "Customer Segmentation"],
+    "projectLink": "https://1drv.ms/x/c/57cfc0e4dc8dc00d/IQAE-nZca17vRYi524oI1v_4AVozaWb5uZXmKbZEY8ZF19Q?e=04hZNh"
+  },
+  {
+    "id": 5,
+    "title": "Job Postings Labor Market Analysis",
+    "description": "An exploratory data science project written in Python to assess tech industry recruitment trends and structural workplace demands across major job boards. Cleaned, wrangled, and deduplicated unstructured, messy job postings data to parse geographic metadata, evaluate salary distributions via descriptive statistics, and isolate high-demand tech stacks and programming languages across remote vs. on-site corporate ecosystems.",
+    "image": "",
+    "tags": ["Python", "Pandas", "EDA", "Data Wrangling"],
+    "projectLink": "https://github.com/ISAAC-Neumoton/Job-Postings-Analysis"
   }
 ]
