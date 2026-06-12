@@ -1,55 +1,75 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* rest of your CSS stays exactly the same... */
-
-/* ── CSS Variables ─────────────────────────────────────── */
+/* ── CSS Variables & Theme Configuration ──────────────── */
 :root {
-  --color-primary: #FF6B00;
-  --color-primary-dark: #E05A00;
-  --color-dark: #0D0D0D;
-  --color-dark-card: #1A1A1A;
-  --color-dark-border: #2a2a2a;
-  --color-text-muted: #888888;
+  --color-bg: #ffffff;
+  --color-card-bg: #f9f9f9;      /* Smooth light card fallback */
+  --color-primary: #FF6B00;      /* Signature brand orange accent */
+  --color-text-main: #111111;    /* Deep charcoal for maximum contrast */
+  --color-text-muted: #555555;   /* Highly legible gray descriptions */
+  --color-dark-border: #e5e7eb;  /* Clean light border layout */
   --navbar-height: 70px;
 }
 
-/* ── Base Reset ────────────────────────────────────────── */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
+html.dark {
+  --color-bg: #0d0d0d;
+  --color-card-bg: #111111;      /* Premium dark panel layout */
+  --color-text-main: #ffffff;
+  --color-text-muted: #a0a0a0;
+  --color-dark-border: #1f2937;  /* High-contrast dark bounding grid */
 }
 
-html {
-  scroll-behavior: smooth;
+/* ── Global Document Resets ── */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  background-color: var(--color-dark);
-  color: #ffffff;
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text-main);
+  transition: background-color 0.3s ease, color 0.3s ease;
   overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
 }
 
-/* ── Scrollbar ─────────────────────────────────────────── */
+/* ── Unified Typography Classes ── */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-text-main);
+  transition: color 0.2s ease;
+}
+
+.section-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  letter-spacing: normal;
+  color: var(--color-text-main);
+  transition: color 0.2s ease;
+}
+
+.section-title span {
+  color: var(--color-primary);
+}
+
+/* ── Scrollbar Layout ── */
 ::-webkit-scrollbar {
   width: 5px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--color-dark);
+  background: var(--color-bg);
 }
 ::-webkit-scrollbar-thumb {
   background: var(--color-primary);
   border-radius: 10px;
 }
 
-/* ── Utility Classes ───────────────────────────────────── */
+/* ── Utility Layout Rules ── */
 .section-padding {
   padding: 80px 0;
 }
@@ -60,7 +80,7 @@ body {
   padding: 0 20px;
 }
 
-/* ── Orange Gradient Text ──────────────────────────────── */
+/* ── Orange Gradient Text ── */
 .gradient-text {
   background: linear-gradient(135deg, var(--color-primary), #FF9A3C);
   -webkit-background-clip: text;
@@ -68,24 +88,12 @@ body {
   background-clip: text;
 }
 
-/* ── Section Title ─────────────────────────────────────── */
-.section-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(2.5rem, 5vw, 3.5rem);
-  letter-spacing: 2px;
-  color: #ffffff;
-}
-
-.section-title span {
-  color: var(--color-primary);
-}
-
-/* ── Active Nav Link ───────────────────────────────────── */
+/* ── Active Nav Link ── */
 .nav-link.active {
   color: var(--color-primary) !important;
 }
 
-/* ── Orange Button ─────────────────────────────────────── */
+/* ── Interactive UI Components ── */
 .btn-primary {
   background: var(--color-primary);
   color: #fff;
@@ -103,7 +111,7 @@ body {
 }
 
 .btn-primary:hover {
-  background: var(--color-primary-dark);
+  opacity: 0.9;
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(255, 107, 0, 0.35);
 }
@@ -112,18 +120,17 @@ body {
   transform: translateY(0);
 }
 
-/* ── Outlined Button ───────────────────────────────────── */
 .btn-outline {
   background: transparent;
-  color: #fff;
+  color: var(--color-text-main);
   padding: 12px 28px;
   border-radius: 6px;
   font-weight: 600;
   font-size: 0.9rem;
   letter-spacing: 0.5px;
-  border: 1.5px solid rgba(255,255,255,0.35);
+  border: 1.5px solid var(--color-dark-border);
   cursor: pointer;
-  transition: border-color 0.2s ease, transform 0.15s ease;
+  transition: all 0.2s ease;
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -135,35 +142,31 @@ body {
   transform: translateY(-2px);
 }
 
-/* ── Card ──────────────────────────────────────────────── */
+/* ── Dynamic Layout Cards ── */
 .card {
-  background: var(--color-dark-card);
+  background: var(--color-card-bg);
   border: 1px solid var(--color-dark-border);
   border-radius: 12px;
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
 }
 
 .card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 0 1px var(--color-primary);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.05), 0 0 0 1px var(--color-primary);
   border-color: var(--color-primary);
 }
 
-/* ── Background decorative shapes ─────────────────────── */
-.bg-shape {
-  position: absolute;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255,107,0,0.08) 0%, transparent 70%);
-  pointer-events: none;
+html.dark .card:hover {
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 0 1px var(--color-primary);
 }
 
-/* ── Hamburger animation ───────────────────────────────── */
+/* ── Hamburger Navigation Control ── */
 .hamburger-line {
   display: block;
   width: 24px;
   height: 2px;
-  background: #fff;
+  background: var(--color-text-main);
   border-radius: 2px;
   transition: transform 0.3s ease, opacity 0.3s ease, background 0.3s ease;
   transform-origin: center;
@@ -180,23 +183,23 @@ body {
   transform: translateY(-8px) rotate(-45deg);
 }
 
-/* ── Stats counter ─────────────────────────────────────── */
+/* ── Stats Display Grid ── */
 .stat-card {
   border-left: 2px solid var(--color-primary);
   padding-left: 16px;
 }
 
-/* ── Input field ───────────────────────────────────────── */
+/* ── Dynamic Input Fields ── */
 .input-field {
-  background: var(--color-dark-card);
+  background: var(--color-card-bg);
   border: 1px solid var(--color-dark-border);
-  color: #fff;
+  color: var(--color-text-main);
   padding: 14px 16px;
   border-radius: 8px;
   width: 100%;
   font-family: 'DM Sans', sans-serif;
   font-size: 0.95rem;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: all 0.2s ease;
   outline: none;
 }
 
@@ -206,19 +209,25 @@ body {
 
 .input-field:focus {
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(255,107,0,0.15);
+  box-shadow: 0 0 0 3px rgba(255, 107, 0, 0.15);
 }
 
-/* ── Hero profile image circle ─────────────────────────── */
+/* ── Hero Profile Elements ── */
 .hero-img-circle {
   position: relative;
   width: 360px;
   height: 360px;
   border-radius: 50%;
-  background: radial-gradient(circle at 60% 40%, #2a2a2a 0%, #111 100%);
+  background: radial-gradient(circle at 60% 40%, #f3f4f6 0%, #e5e7eb 100%);
   overflow: hidden;
   flex-shrink: 0;
   border: 2px solid var(--color-dark-border);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+html.dark .hero-img-circle {
+  background: radial-gradient(circle at 60% 40%, #2a2a2a 0%, #111111 100%);
   box-shadow: 0 0 60px rgba(255, 107, 0, 0.1), inset 0 0 40px rgba(0,0,0,0.5);
 }
 
@@ -229,7 +238,14 @@ body {
   }
 }
 
-/* ── Geo background triangles ──────────────────────────── */
+/* ── Background Geometric Systems ── */
+.bg-shape {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,107,0,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
 .geo-triangle {
   position: absolute;
   border-style: solid;

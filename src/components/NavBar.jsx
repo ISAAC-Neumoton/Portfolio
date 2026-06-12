@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-// import { useActiveSection } from '../../hooks/useActiveSection';
-// import { scrollToSection } from '../../utils/scrollTo';
-
+import { FiSun, FiMoon } from 'react-icons/fi';
 import { useActiveSection } from "../hooks/useActiveSection";
 import { scrollToSection } from "../utils/scrollTo";
+import { useTheme } from "../hooks/useTheme"; // 👈 Importing your new theme hook
 
 const NAV_LINKS = [
   { label: 'Home',     id: 'hero'     },
@@ -17,6 +16,7 @@ const NAV_LINKS = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme(); // 👈 Destructuring theme controls
   const activeSection = useActiveSection(NAV_LINKS.map(l => l.id));
 
   // Detect scroll to add background blur
@@ -33,11 +33,7 @@ export default function Navbar() {
     return () => window.removeEventListener('resize', handler);
   }, []);
 
-  // const handleNav = (id) => {
-  //   scrollToSection(id);
-  //   setMenuOpen(false);
-  // };
-    const handleNav = (id) => {
+  const handleNav = (id) => {
     setMenuOpen(false);
     setTimeout(() => {
       scrollToSection(id);
@@ -53,7 +49,7 @@ export default function Navbar() {
         fixed top-0 left-0 right-0 z-50
         transition-all duration-300
         ${scrolled
-          ? 'bg-[rgba(13,13,13,0.92)] backdrop-blur-md border-b border-[var(--color-dark-border)]'
+          ? 'bg-[var(--color-bg)]/90 backdrop-blur-md border-b border-[var(--color-dark-border)] shadow-sm dark:shadow-none'
           : 'bg-transparent'
         }
       `}
@@ -64,53 +60,70 @@ export default function Navbar() {
         {/* Logo */}
         <button
           onClick={() => handleNav('hero')}
-          className="font-display text-2xl tracking-widest hover:text-[var(--color-primary)] transition-colors duration-200"
+          className="font-display text-2xl tracking-widest text-[var(--color-text-main)] hover:text-[var(--color-primary)] transition-colors duration-200"
           style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '3px' }}
         >
           integral <span style={{ color: 'var(--color-primary)' }}>di</span>
         </button>
 
-        {/* Desktop links */}
-        <ul className="hidden md:flex items-center gap-8">
-          {NAV_LINKS.map(({ label, id }) => (
-            <li key={id}>
-              <button
-                onClick={() => handleNav(id)}
-                className={`
-                  nav-link text-sm font-medium tracking-wide transition-colors duration-200
-                  relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px]
-                  after:bg-[var(--color-primary)] after:transition-all after:duration-300
-                  ${activeSection === id
-                    ? 'text-[var(--color-primary)] after:w-full'
-                    : 'text-[var(--color-text-muted)] hover:text-white after:w-0 hover:after:w-full'
-                  }
-                `}
-              >
-                {label}
-              </button>
-            </li>
-          ))}
-        </ul>
+        {/* Action Controls Container */}
+        <div className="flex items-center gap-6">
+          
+          {/* Desktop links */}
+          <ul className="hidden md:flex items-center gap-8">
+            {NAV_LINKS.map(({ label, id }) => (
+              <li key={id}>
+                <button
+                  onClick={() => handleNav(id)}
+                  className={`
+                    nav-link text-sm font-medium tracking-wide transition-colors duration-200
+                    relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px]
+                    after:bg-[var(--color-primary)] after:transition-all after:duration-300
+                    ${activeSection === id
+                      ? 'text-[var(--color-primary)] after:w-full'
+                      : 'text-[var(--color-text-muted)] hover:text-[var(--color-text-main)] after:w-0 hover:after:w-full'
+                    }
+                  `}
+                >
+                  {label}
+                </button>
+              </li>
+            ))}
+          </ul>
 
-        {/* Hire Me CTA (desktop) */}
-        <button
-          onClick={() => handleNav('contact')}
-          className="btn-primary hidden md:inline-flex"
-        >
-          Hire Me
-        </button>
+          {/* Theme Toggle Button (Desktop & Mobile visibility helper) */}
+          <button
+            onClick={toggleTheme}
+            className="p-2 rounded-full border border-[var(--color-dark-border)] text-[var(--color-text-main)] hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors duration-200"
+            aria-label="Toggle visual layout interface theme"
+          >
+            {theme === 'dark' ? (
+              <FiSun size={16} className="text-orange-500" />
+            ) : (
+              <FiMoon size={16} className="text-gray-600" />
+            )}
+          </button>
 
-        {/* Hamburger (mobile) */}
-        <button
-          className={`md:hidden flex flex-col gap-[6px] p-2 ${menuOpen ? 'hamburger-open' : ''}`}
-          onClick={() => setMenuOpen(prev => !prev)}
-          aria-label="Toggle menu"
-          aria-expanded={menuOpen}
-        >
-          <span className="hamburger-line" />
-          <span className="hamburger-line" />
-          <span className="hamburger-line" />
-        </button>
+          {/* Hire Me CTA (desktop) */}
+          <button
+            onClick={() => handleNav('contact')}
+            className="btn-primary hidden md:inline-flex"
+          >
+            Hire Me
+          </button>
+
+          {/* Hamburger (mobile) */}
+          <button
+            className={`md:hidden flex flex-col gap-[6px] p-2 hamburger-button ${menuOpen ? 'hamburger-open' : ''}`}
+            onClick={() => setMenuOpen(prev => !prev)}
+            aria-label="Toggle menu"
+            aria-expanded={menuOpen}
+          >
+            <span className="hamburger-line bg-[var(--color-text-main)] h-[2px] w-6 block transition-all duration-300" />
+            <span className="hamburger-line bg-[var(--color-text-main)] h-[2px] w-6 block transition-all duration-300" />
+            <span className="hamburger-line bg-[var(--color-text-main)] h-[2px] w-6 block transition-all duration-300" />
+          </button>
+        </div>
       </div>
 
       {/* Mobile drawer */}
@@ -122,7 +135,7 @@ export default function Navbar() {
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3, ease: 'easeInOut' }}
-            className="md:hidden overflow-hidden bg-[rgba(13,13,13,0.97)] border-b border-[var(--color-dark-border)]"
+            className="md:hidden overflow-hidden bg-[var(--color-bg)]/98 border-b border-[var(--color-dark-border)]"
           >
             <ul className="flex flex-col py-4">
               {NAV_LINKS.map(({ label, id }, i) => (
@@ -138,8 +151,8 @@ export default function Navbar() {
                       w-full text-left px-6 py-3 text-sm font-medium
                       border-l-2 transition-all duration-200
                       ${activeSection === id
-                        ? 'border-[var(--color-primary)] text-[var(--color-primary)] bg-[rgba(255,107,0,0.05)]'
-                        : 'border-transparent text-[var(--color-text-muted)] hover:text-white hover:border-[var(--color-primary)]'
+                        ? 'border-[var(--color-primary)] text-[var(--color-primary)] bg-[var(--color-primary)]/5'
+                        : 'border-transparent text-[var(--color-text-muted)] hover:text-[var(--color-text-main)] hover:border-[var(--color-primary)]'
                       }
                     `}
                   >

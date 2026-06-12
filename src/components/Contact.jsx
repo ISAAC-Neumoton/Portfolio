@@ -73,10 +73,16 @@ export default function Contact() {
           <p className="text-[var(--color-primary)] text-sm font-mono tracking-widest uppercase mb-2">
             — Get In Touch
           </p>
-          <h2 className="section-title mb-4">
-            Contact <span>Me</span>
+          <h2 
+            className="section-title mb-4 text-4xl md:text-5xl font-extrabold transition-colors duration-200"
+            style={{ color: 'var(--color-text-main)', fontFamily: "'Poppins', sans-serif" }}
+          >
+            Contact <span style={{ color: 'var(--color-primary)' }}>Me</span>
           </h2>
-          <p className="text-[var(--color-text-muted)] max-w-md mb-12">
+          <p 
+            className="max-w-md mb-12 transition-colors duration-200"
+            style={{ color: 'var(--color-text-muted)', fontFamily: "'Poppins', sans-serif" }}
+          >
             Have a project in mind? Let's talk. Fill out the form or reach me directly.
           </p>
         </Reveal>
