@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FiSun, FiMoon } from 'react-icons/fi';
 import { useActiveSection } from "../hooks/useActiveSection";
 import { scrollToSection } from "../utils/scrollTo";
-import { useTheme } from "../hooks/useTheme"; // 👈 Importing your new theme hook
+import { useTheme } from "../hooks/useTheme";
 
 const NAV_LINKS = [
   { label: 'Home',     id: 'hero'     },
@@ -14,30 +14,36 @@ const NAV_LINKS = [
 ];
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
-  const { theme, toggleTheme } = useTheme(); // 👈 Destructuring theme controls
-  const activeSection = useActiveSection(NAV_LINKS.map(l => l.id));
+  const [scrolled, setScrolled]   = useState(false);
+  const [menuOpen, setMenuOpen]   = useState(false);
+  const { theme, toggleTheme }    = useTheme();
+  const activeSection             = useActiveSection(NAV_LINKS.map(l => l.id));
 
-  // Detect scroll to add background blur
+  // Add shadow on scroll
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handler, { passive: true });
     return () => window.removeEventListener('scroll', handler);
   }, []);
 
-  // Close menu on resize
+  // Close menu on resize to desktop
   useEffect(() => {
     const handler = () => { if (window.innerWidth >= 768) setMenuOpen(false); };
     window.addEventListener('resize', handler);
     return () => window.removeEventListener('resize', handler);
   }, []);
 
+  // Close menu on scroll
+  useEffect(() => {
+    if (!menuOpen) return;
+    const handler = () => setMenuOpen(false);
+    window.addEventListener('scroll', handler, { passive: true });
+    return () => window.removeEventListener('scroll', handler);
+  }, [menuOpen]);
+
   const handleNav = (id) => {
     setMenuOpen(false);
-    setTimeout(() => {
-      scrollToSection(id);
-    }, 300); // wait for menu close animation to finish first
+    setTimeout(() => scrollToSection(id), 300);
   };
 
   return (
@@ -49,13 +55,13 @@ export default function Navbar() {
         fixed top-0 left-0 right-0 z-50
         transition-all duration-300
         ${scrolled
-          ? 'bg-[var(--color-bg)]/90 backdrop-blur-md border-b border-[var(--color-dark-border)] shadow-sm dark:shadow-none'
-          : 'bg-transparent'
+          ? 'bg-[var(--color-bg)] border-b border-[var(--color-dark-border)] shadow-sm'
+          : 'bg-[var(--color-bg)]'
         }
       `}
       style={{ height: 'var(--navbar-height)' }}
     >
-      <div className="container-custom h-full flex items-center justify-between">
+      <div className="container-custom h-full flex items-center justify-between px-4">
 
         {/* Logo */}
         <button
@@ -66,10 +72,10 @@ export default function Navbar() {
           integral <span style={{ color: 'var(--color-primary)' }}>di</span>
         </button>
 
-        {/* Action Controls Container */}
-        <div className="flex items-center gap-6">
-          
-          {/* Desktop links */}
+        {/* Right controls */}
+        <div className="flex items-center gap-3">
+
+          {/* Desktop nav links */}
           <ul className="hidden md:flex items-center gap-8">
             {NAV_LINKS.map(({ label, id }) => (
               <li key={id}>
@@ -91,20 +97,19 @@ export default function Navbar() {
             ))}
           </ul>
 
-          {/* Theme Toggle Button (Desktop & Mobile visibility helper) */}
+          {/* Theme toggle */}
           <button
             onClick={toggleTheme}
-            className="p-2 rounded-full border border-[var(--color-dark-border)] text-[var(--color-text-main)] hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors duration-200"
-            aria-label="Toggle visual layout interface theme"
+            className="p-2 rounded-full border border-[var(--color-dark-border)] text-[var(--color-text-main)] hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200"
+            aria-label="Toggle theme"
           >
-            {theme === 'dark' ? (
-              <FiSun size={16} className="text-orange-500" />
-            ) : (
-              <FiMoon size={16} className="text-gray-600" />
-            )}
+            {theme === 'dark'
+              ? <FiSun  size={16} className="text-orange-500" />
+              : <FiMoon size={16} className="text-gray-600"   />
+            }
           </button>
 
-          {/* Hire Me CTA (desktop) */}
+          {/* Hire Me — DESKTOP ONLY */}
           <button
             onClick={() => handleNav('contact')}
             className="btn-primary hidden md:inline-flex"
@@ -112,7 +117,7 @@ export default function Navbar() {
             Hire Me
           </button>
 
-          {/* Hamburger (mobile) */}
+          {/* Hamburger — MOBILE ONLY */}
           <button
             className={`md:hidden flex flex-col gap-[6px] p-2 hamburger-button ${menuOpen ? 'hamburger-open' : ''}`}
             onClick={() => setMenuOpen(prev => !prev)}
@@ -135,7 +140,8 @@ export default function Navbar() {
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3, ease: 'easeInOut' }}
-            className="md:hidden overflow-hidden bg-[var(--color-bg)]/98 border-b border-[var(--color-dark-border)]"
+            className="md:hidden overflow-hidden border-b border-[var(--color-dark-border)]"
+            style={{ backgroundColor: 'var(--color-bg)' }}
           >
             <ul className="flex flex-col py-4">
               {NAV_LINKS.map(({ label, id }, i) => (
@@ -152,7 +158,7 @@ export default function Navbar() {
                       border-l-2 transition-all duration-200
                       ${activeSection === id
                         ? 'border-[var(--color-primary)] text-[var(--color-primary)] bg-[var(--color-primary)]/5'
-                        : 'border-transparent text-[var(--color-text-muted)] hover:text-[var(--color-text-main)] hover:border-[var(--color-primary)]'
+                        : 'border-transparent text-[var(--color-text-main)] hover:text-[var(--color-primary)] hover:border-[var(--color-primary)]'
                       }
                     `}
                   >
@@ -160,7 +166,9 @@ export default function Navbar() {
                   </button>
                 </motion.li>
               ))}
-              <li className="px-6 pt-3 pb-2">
+
+              {/* Hire Me at bottom of drawer */}
+              <li className="px-6 pt-4 pb-2">
                 <button
                   onClick={() => handleNav('contact')}
                   className="btn-primary w-full justify-center"

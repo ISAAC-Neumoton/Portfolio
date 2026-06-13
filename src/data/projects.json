@@ -2,41 +2,41 @@
   {
     "id": 1,
     "title": "Brazilian E-Commerce Sales Analysis",
-    "description": "An end-to-end data analytics and predictive modeling pipeline utilizing a 9-CSV relational database on SQL Server 2022 to isolate key predictors of high-performing products. Engineered advanced data cleaning pipelines in Python to calculate metrics like delivery deltas and shipping-to-price ratios, applied NLP (NLTK, Transformers) for customer review sentiment scoring, and built an interactive Power BI dashboard backed by a robust scikit-learn regression model.",
+    "description": "End-to-end analytics pipeline on 9-CSV relational data in SQL Server 2022. Built delivery delta metrics, shipping-to-price ratios, NLP sentiment scoring on reviews, and a scikit-learn regression model powering an interactive Power BI dashboard.",
     "image": "",
-    "tags": ["SQL Server", "Python", "Power BI", "NLP", "Scikit-Learn", "Sales Revenue Forecasting", "Customer Segmentation", "Jupyter Notebook"],
+    "tags": ["SQL Server 2022", "Python", "Power BI", "NLTK", "Transformers", "Scikit-Learn", "NLP Sentiment", "Sales Forecasting", "Customer Segmentation", "Jupyter Notebook"],
     "projectLink": "https://github.com/ISAAC-Neumoton/CodeAlpha_DataAnalysis"
   },
   {
     "id": 2,
     "title": "Hospital Patients Operational & Financial Analysis",
-    "description": "A comprehensive SQL-driven database optimization project focused on data profiling and clinical efficiency metrics. Programmed advanced queries to audit data quality and detect orphan records across admissions and procedures. Segmented patient demographics using window functions and CTEs to identify high-frequency 'super-utilizer' trends, track departmental length-of-stay (LOS) outliers, and analyze insurance claims data.",
+    "description": "SQL-driven clinical efficiency audit across admissions and procedures. Used CTEs and window functions to segment patient demographics, flag LOS outliers, detect orphan records, and analyze insurance claims data.",
     "image": "",
-    "tags": ["SQL", "Database Design", "Data Quality", "Analytics", "Data Analysis"],
+    "tags": ["SQL Server", "CTEs", "Window Functions", "Data Quality Auditing", "LOS Analysis", "Insurance Claims", "Patient Segmentation", "Database Optimization"],
     "projectLink": "https://github.com/ISAAC-Neumoton/hospital_patients_analysis"
   },
   {
     "id": 3,
     "title": "Automated Machine Learning Solutions (100-Day Streak)",
-    "description": "An active engineering repository focused on building automated, production-ready machine learning pipelines to solve real-world problems. Developed entirely within cloud-hosted environments as part of an ongoing 100-day continuous learning streak, featuring modular Python scripts for end-to-end data preprocessing, missing value imputation, train/test evaluation splits, and scikit-learn predictive modeling.",
+    "description": "Active repository of production-ready ML pipelines built across 100+ consecutive days. Covers end-to-end preprocessing, missing value imputation, feature engineering, and scikit-learn classification and regression models.",
     "image": "",
-    "tags": ["Python", "Machine Learning", "Automation","classifiacation Model", "Regression Model"],
+    "tags": ["Python", "Scikit-Learn", "Classification", "Regression", "Feature Engineering", "Imputation", "Pipeline Automation", "Cloud Notebooks"],
     "projectLink": "https://github.com/ISAAC-Neumoton/Machine-Learining-Models"
   },
   {
     "id": 4,
     "title": "Excel RFM Customer Segmentation & Churn Analysis",
-    "description": "A commercial analytics project using relational SQL window functions to extract customer Recency, Frequency, and Monetary (RFM) metrics from historical transaction databases. Classified consumer bases into actionable behavioral cohorts (Champions, At-Risk, Hibernating) to proactively catch churn indicators, mapping the final data structures to an interactive Excel dashboard complete with dynamic pivot tables and slicers.",
+    "description": "Extracted RFM metrics from historical transaction data using SQL window functions. Classified customers into Champions, At-Risk, and Hibernating cohorts to catch churn early, mapped into an Excel dashboard with dynamic pivot tables and slicers.",
     "image": "",
-    "tags": ["Excel", "SQL", "RFM Modeling", "Customer Segmentation"],
+    "tags": ["Excel", "SQL", "RFM Modeling", "Window Functions", "Churn Detection", "Customer Segmentation", "Pivot Tables", "Behavioral Cohorts"],
     "projectLink": "https://1drv.ms/x/c/57cfc0e4dc8dc00d/IQAE-nZca17vRYi524oI1v_4AVozaWb5uZXmKbZEY8ZF19Q?e=04hZNh"
   },
   {
     "id": 5,
     "title": "Job Postings Data Science Market Analysis",
-    "description": "An exploratory data science project in Python built to assess tech industry recruitment trends and structural workplace demands. Cleaned and deduplicated messy, web-scraped job board datasets using pandas and regular expressions (Regex) to normalize fractured geographical metadata and evaluate global tech stack demand and salary distributions across remote vs. on-site corporate ecosystems.",
+    "description": "EDA project analyzing tech recruitment trends from web-scraped job board data. Used pandas and Regex to deduplicate records, normalize geo-metadata, and map global tech stack demand and salary distributions across remote vs. on-site roles.",
     "image": "",
-    "tags": ["Python", "Pandas", "EDA", "Data Wrangling", "Jupyter Notebook"],
+    "tags": ["Python", "Pandas", "EDA", "Regex", "Data Wrangling", "Salary Analysis", "Remote Work Trends", "Jupyter Notebook"],
     "projectLink": "https://github.com/ISAAC-Neumoton/Job-Postings-Analysis"
   }
 ]
