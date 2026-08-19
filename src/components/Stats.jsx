@@ -51,12 +51,12 @@ function StatItem({ label, value, suffix = '+', delay = 0 }) {
 
 export default function Stats() {
   // Happy clients = number of projects (auto-updates)
-  const happyClients = projects.length;
+  // const happyClients = projects.length;
 
   const stats = [
     { label: 'Years Experience', value: YEARS_EXPERIENCE, suffix: '+' },
     { label: 'Projects Done',    value: projects.length,  suffix: '+'  },
-    { label: 'Happy Clients',    value: happyClients,     suffix: '+'  },
+    // { label: 'Happy Clients',    value: happyClients,     suffix: '+'  },
     { label: 'Technologies',     value: 12,               suffix: '+'  },
   ];
 

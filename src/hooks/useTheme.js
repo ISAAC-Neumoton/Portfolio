@@ -1,14 +1,17 @@
 import { useEffect, useState } from 'react';
 
 export function useTheme() {
-  // Checks localStorage or defaults to your rule: light mode ("") as default
   const [theme, setTheme] = useState(() => {
-    return localStorage.getItem('portfolio-theme') || '';
+    const storedTheme = localStorage.getItem('portfolio-theme');
+    if (storedTheme === 'dark' || storedTheme === 'light') {
+      return storedTheme;
+    }
+    return 'dark';
   });
 
   useEffect(() => {
     const root = window.document.documentElement;
-    
+
     if (theme === 'dark') {
       root.classList.add('dark');
       localStorage.setItem('portfolio-theme', 'dark');

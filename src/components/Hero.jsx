@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { FiFileText, FiArrowRight } from 'react-icons/fi';
 import SocialIcons from './SocialIcons';
 import { scrollToSection } from '../utils/scrollTo';
-import heroGlobe from '../assets/hero_ujay.jpeg';
+import heroGlobe from '../assets/hero_ujay.png';
 import myCv from '../data/cv.pdf';
 
 const fadeUp = (delay = 0) => ({
@@ -21,8 +21,7 @@ export default function Hero() {
         background:     'var(--color-bg)',
         paddingTop:     'calc(var(--navbar-height) + 4rem)',
         paddingBottom:  '4rem',
-      }}
-    >
+      }}>
       {/* Background lighting */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         <div
@@ -136,7 +135,7 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* RIGHT: Profile Image */}
+          {/* RIGHT: Profile Image — breakout blob effect */}
           <motion.div
             initial={{ scale: 0.85, opacity: 0 }}
             animate={{ scale: 1,    opacity: 1 }}
@@ -147,18 +146,15 @@ export default function Hero() {
               className="absolute inset-0 rounded-full blur-xl opacity-20 dark:opacity-30 scale-95"
               style={{ background: 'radial-gradient(circle, var(--color-primary) 0%, transparent 70%)' }}
             />
-            <div
-              className="relative overflow-hidden border-2 transition-all duration-300 shadow-xl w-[260px] h-[260px] sm:w-[340px] sm:h-[340px]"
-              style={{
-                borderColor:  'var(--color-dark-border)',
-                borderRadius: '30% 70% 70% 30% / 30% 30% 70% 70%',
-              }}
-            >
-              <img
-                src={heroGlobe}
-                alt="Umoh Isaac profile"
-                className="w-full h-full object-cover object-center transform scale-105 hover:scale-110 transition-transform duration-500"
-              />
+
+            <div className="relative hero-portrait-wrap">
+              <div className="hero-img-circle">
+                <img
+                  src={heroGlobe}
+                  alt="Umoh Isaac profile"
+                  className="hero-frame-image"
+                />
+              </div>
             </div>
           </motion.div>
 

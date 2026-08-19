@@ -109,14 +109,6 @@ export default function Navbar() {
             }
           </button>
 
-          {/* Hire Me — DESKTOP ONLY */}
-          <button
-            onClick={() => handleNav('contact')}
-            className="btn-primary hidden md:inline-flex"
-          >
-            Hire Me
-          </button>
-
           {/* Hamburger — MOBILE ONLY */}
           <button
             className={`md:hidden flex flex-col gap-[6px] p-2 hamburger-button ${menuOpen ? 'hamburger-open' : ''}`}
@@ -167,15 +159,6 @@ export default function Navbar() {
                 </motion.li>
               ))}
 
-              {/* Hire Me at bottom of drawer */}
-              <li className="px-6 pt-4 pb-2">
-                <button
-                  onClick={() => handleNav('contact')}
-                  className="btn-primary w-full justify-center"
-                >
-                  Hire Me
-                </button>
-              </li>
             </ul>
           </motion.div>
         )}

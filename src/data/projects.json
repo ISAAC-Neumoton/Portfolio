@@ -38,5 +38,13 @@
     "image": "",
     "tags": ["Python", "Pandas", "EDA", "Regex", "Data Wrangling", "Salary Analysis", "Remote Work Trends", "Jupyter Notebook"],
     "projectLink": "https://github.com/ISAAC-Neumoton/Job-Postings-Analysis"
+  },
+  {
+    "id": 6,
+    "title": "World Cup 2026 Live Analysis",
+    "description": "A live, self-updating Power BI dashboard tracking the 2026 FIFA World Cup — standings, results, player stats, and tournament insights, refreshed automatically as new matches are played.",
+    "image": "",
+    "tags": ["Python", "DAX", "Power BI" , "Live Report", "Automated Analytics", "GitHub Actions", "Data Storytelling"],
+    "projectLink": "https://github.com/ISAAC-Neumoton/wc2026"
   }
 ]

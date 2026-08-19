@@ -28,7 +28,6 @@ function SkillBar({ label, percent, delay = 0 }) {
   return (
     <div ref={ref} className="mb-4" style={{ fontFamily: "'Poppins', sans-serif" }}>
       <div className="flex justify-between mb-1">
-        {/* Fixed Label Color: Uses text-main for explicit visibility in both themes */}
         <span className="text-sm font-semibold transition-colors duration-200" style={{ color: 'var(--color-text-main)' }}>
           {label}
         </span>
@@ -48,33 +47,37 @@ function SkillBar({ label, percent, delay = 0 }) {
 }
 
 const SKILLS = [
-  { label: 'Python & Pandas',     percent: 90 },
-  { label: 'Machine Learning',    percent: 82 },
-  { label: 'Data Visualisation',  percent: 88 },
-  { label: 'SQL & Databases',    percent: 78 },
-  { label: 'Power BI / Tableau',  percent: 85 },
+  { label: 'Python',        percent: 90 },
+  { label: 'Excel/Spreadsheet',        percent: 80 },
+  { label: 'Machine Learning',       percent: 75 },
+  { label: 'Data Visualisation and Reporting',     percent: 80 },
+  { label: 'SQL & Databases',        percent: 70 },
+  { label: 'Power BI / Tableau',     percent: 80 },
+  { label: 'Automation & AI Workflows', percent: 50 },
+  { label: 'Cloud', percent: 50 },
+  { label: 'Software/AI systems', percent: 50 },
 ];
 
 const EXPERTISE_PILLARS = [
   {
-    title: "Sales & Product Performance Analytics",
-    desc: "Evaluating baseline transaction health, engineering retail performance metrics, and delivering macro revenue visibility. I map pricing intelligence and product-level trends directly to high-impact automated reporting frameworks.",
-    skills: ["E-commerce Sales Analysis", "Product Revenue Breakdown", "Sales Team Performance", "Retail Performance Tracking", "Pricing Analytics", "Executive C-suite Reporting"]
+    title: "Sales Intelligence & Automation",
+    desc: "Building the analytical backbone for sales teams — from lead scoring to pipeline visibility. I engineer forecasting models and CRM-integrated intelligence that surface which deals close, which stall, and where automation removes manual effort.",
+    skills: ["Lead Scoring Models", "Sales Forecasting", "Customer Segmentation (RFM)", "Pipeline & Funnel Analytics", "CRM Intelligence (HubSpot/Salesforce)", "Win-Rate & Deal Velocity", "Sales Process Automation", "Territory & Quota Planning"]
   },
   {
-    title: "Advanced Machine Learning & Predictive Systems",
-    desc: "Deploying regression, time-series forecasting, and classification algorithms where basic dashboards reach their analytical limits. I isolate risk metrics to proactively capture retention indicators and structural market shifts.",
-    skills: ["Sales Forecasting", "Customer Churn Prediction", "Customer Lifetime Value (CLV)", "Competitive Pricing Intelligence", "Financial Services & Insurance Risk"]
+    title: "Marketing Intelligence",
+    desc: "Turning fragmented campaign data into a single source of truth. I audit customer behavior, model multi-touch attribution, and build recommendation logic that ties ad spend directly to pipeline and revenue outcomes.",
+    skills: ["Customer Analytics & Personas", "Campaign Performance Analysis", "Attribution Modeling", "Audience Targeting & Segmentation", "Recommendation Systems", "Marketing Automation Workflows", "A/B Testing & Experimentation", "Channel ROI Analysis"]
   },
   {
-    title: "Marketing, Funnel & Attribution Optimization",
-    desc: "Auditing multi-channel promotional investments and traffic mechanics. I dissect conversion drop-offs from entry points to pipeline velocity markers, providing empirical backing to performance marketing budgets.",
-    skills: ["Marketing Campaign ROI", "Paid Ad Attribution Models", "Web Traffic & Conversion Funnels (GA4)", "Lead Funnel Analysis", "Restaurant & Food Menu Engineering"]
+    title: "Finance & Revenue Analytics",
+    desc: "Bridging finance and growth. I build revenue forecasting models, pricing and profitability frameworks, and risk models that give leadership a real-time, data-backed view of financial decision-making.",
+    skills: ["Revenue Forecasting", "Financial Analytics & Reporting", "Pricing Strategy", "Profitability & Margin Analysis", "Risk & Credit Modeling", "Financial Decision Support", "Budget Variance Analysis", "Cash Flow Modeling"]
   },
   {
-    title: "Logistics, Supply Chain & Social Intelligence",
-    desc: "Mapping physical fulfillment overhead alongside digital audience behavior. I build tracking workflows to counter route frictions, balance inventory limits, and extract qualitative product feedback directly from source code scrapers.",
-    skills: ["Inventory & Supply Chain Analysis", "Logistics & Delivery Tracking", "Social Media Engagement & Sentiment", "Real Estate Geospatial Analytics"]
+    title: "Data, AI & Automation Engineering",
+    desc: "The technical layer underneath every solution above — data engineering, statistical modeling, and applied AI/ML, packaged into automated systems rather than one-off reports.",
+    skills: ["Data Analytics & Engineering", "Data Science & Statistical Modeling", "AI/ML Model Development", "ETL Pipeline Design", "Process Automation Software", "Cloud Data Platforms", "Power BI / Tableau Dashboards", "Python & SQL Development"]
   }
 ];
 
@@ -95,42 +98,41 @@ export default function About() {
 
         {/* ── Top Section: Core Philosophy & Info ─────── */}
         <div className="grid md:grid-cols-5 gap-10 items-start mb-16">
-          
+
           {/* Left: Philosophy Bio */}
           <div className="md:col-span-3 space-y-4">
             <RevealSection delay={0.1}>
               <p className="text-lg font-medium leading-relaxed transition-colors duration-200" style={{ color: 'var(--color-text-main)' }}>
-                I approach commercial ecosystems from First Principles. 
-                Rather than treating data as isolated numbers, I reconstruct it to reveal the true underlying mechanics of your business metrics.
+                I'm a Revenue Intelligence & AI Engineer. I build data, AI, analytics, and automation solutions for sales, marketing, and finance teams — helping businesses acquire customers, grow revenue, optimize operations, and make better decisions.
               </p>
               <p className="text-base leading-relaxed mt-2 transition-colors duration-200" style={{ color: 'var(--color-text-muted)' }}>
-                Specializing in the alignment of sales pipelines, logistics architecture, customer behavior analytics, and performance advertising metrics. I design technical systems that turn fragmented data loops into streamlined commercial growth levers.
+                Rather than treating data as isolated numbers, I reconstruct it to reveal the true mechanics behind sales pipelines, marketing spend, and financial performance — then engineer systems that turn fragmented data loops into streamlined commercial growth levers.
               </p>
             </RevealSection>
 
             {/* Streak Highlights Banner */}
             <RevealSection delay={0.15}>
-              <div 
+              <div
                 className="p-5 border-l-4 border-[var(--color-primary)] rounded-r-md mt-6 transition-all duration-300 bg-gray-50 dark:bg-[#141414] border border-y-[var(--color-dark-border)] border-r-[var(--color-dark-border)]"
               >
                 <span className="text-[var(--color-primary)] font-mono text-xs font-bold uppercase tracking-wider block mb-1">
                   Engineering Execution
                 </span>
                 <p className="text-sm transition-colors duration-200 leading-relaxed" style={{ color: 'var(--color-text-muted)' }}>
-                  Currently running an active, continuous 100-Day Machine Learning Streak in cloud-hosted development environments, committing automated data preprocessing and predictive pipeline scripts daily.
+                  Currently running an active, continuous 100-Day Machine Learning Streak in cloud-hosted development environments, committing automated data preprocessing and predictive pipeline scripts daily. Applied Data Science student at WQU (WorldQuant University), alongside a 400 Level Computer Science degree at the Federal University of Technology, Akure (FUTA).
                 </p>
               </div>
             </RevealSection>
           </div>
 
           {/* Right: Technical Metadata Bars */}
-          <div 
-            className="md:col-span-2 p-6 rounded-lg border transition-all duration-300 bg-gray-50 dark:bg-[#141414]" 
+          <div
+            className="md:col-span-2 p-6 rounded-lg border transition-all duration-300 bg-gray-50 dark:bg-[#141414]"
             style={{ borderColor: 'var(--color-dark-border)' }}
           >
             <RevealSection delay={0.2}>
-              <h3 
-                className="text-xs font-mono tracking-widest uppercase mb-6 pb-2 border-b transition-colors duration-200 font-bold" 
+              <h3
+                className="text-xs font-mono tracking-widest uppercase mb-6 pb-2 border-b transition-colors duration-200 font-bold"
                 style={{ color: 'var(--color-text-main)', borderColor: 'var(--color-dark-border)' }}
               >
                 Core Metrics
@@ -156,8 +158,8 @@ export default function About() {
 
           <div className="grid md:grid-cols-2 gap-6">
             {EXPERTISE_PILLARS.map((pillar) => (
-              <div 
-                key={pillar.title} 
+              <div
+                key={pillar.title}
                 className="p-6 rounded-xl border transition-all duration-300 flex flex-col justify-between bg-gray-50 dark:bg-[#111111] hover:shadow-md dark:hover:border-[var(--color-primary)]/40"
                 style={{ borderColor: 'var(--color-dark-border)' }}
               >
@@ -169,19 +171,18 @@ export default function About() {
                     {pillar.desc}
                   </p>
                 </div>
-                
-                {/* Clean, Legible Tag Badges */}
-                <div 
-                  className="flex flex-wrap gap-2 pt-4 border-t transition-colors duration-200" 
+
+                <div
+                  className="flex flex-wrap gap-2 pt-4 border-t transition-colors duration-200"
                   style={{ borderColor: 'var(--color-dark-border)' }}
                 >
                   {pillar.skills.map((skill) => (
-                    <span 
-                      key={skill} 
+                    <span
+                      key={skill}
                       className="text-[11px] font-medium font-mono px-2.5 py-1 rounded-md border transition-all duration-200 bg-white dark:bg-[#1c1c1c]"
-                      style={{ 
-                        borderColor: 'var(--color-dark-border)', 
-                        color: 'var(--color-text-main)' 
+                      style={{
+                        borderColor: 'var(--color-dark-border)',
+                        color: 'var(--color-text-main)'
                       }}
                     >
                       {skill}
