@@ -1,16 +1,40 @@
-# React + Vite
+# Umoh Isaac Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+My personal portfolio website showcasing my work across **Data Science, Machine Learning, Business Intelligence, and Software Engineering**.
 
-Currently, two official plugins are available:
+The portfolio highlights selected projects, technical skills, professional experience, certifications, and the data-driven solutions I build.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Built With
 
-## React Compiler
+* React
+* Vite
+* JavaScript
+* Tailwind CSS
+* Lucide React
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Featured Work
 
-## Expanding the ESLint configuration
+* **Brazilian E-Commerce Sales Analysis** — SQL, Python, Power BI & Machine Learning
+* **Hospital Operational & Financial Audit** — SQL Server & Advanced Analytics
+* **Automated ML Solutions** — Machine Learning & Feature Engineering
+* **RFM Segmentation & Churn Analysis** — SQL & Excel
+* **Tech Job Postings Market Analysis** — Python & Data Analysis
+* **World Cup 2026 Live Analysis** — Power BI, Python & GitHub Actions
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Run Locally
+
+```bash
+git clone https://github.com/ISAAC-Neumoton/portfolio.git
+cd portfolio
+npm install
+npm run dev
+```
+
+Open `http://localhost:5173` in your browser.
+
+## Author
+
+**Umoh Isaac**
+ | Data Analyst | ML Engineer
+
+
